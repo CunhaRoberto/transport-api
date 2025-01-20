@@ -1,10 +1,10 @@
 import UUIDGenerator from '../../support/UUIDGenerator.mjs'
 
 const presenterMap = (data) => {
-  const resultUsersSpecifications = data.map((Temp) => {
+  const listBus = data.map((Temp) => {
     let id = UUIDGenerator.from(Temp._id)
     delete Temp._id
-    delete Temp.password
+   
 
     let result = {
       id: id.toString(),
@@ -14,7 +14,7 @@ const presenterMap = (data) => {
     return result
   })
 
-  return resultUsersSpecifications
+  return listBus
 }
 
 const presenter = async (data) => {

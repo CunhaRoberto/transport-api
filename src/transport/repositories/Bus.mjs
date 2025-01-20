@@ -1,6 +1,6 @@
 class Users {
   constructor(repositoryImpl) {
-    this.collection = 'user'      
+    this.collection = 'bus'      
     this.repository = repositoryImpl
   }
 

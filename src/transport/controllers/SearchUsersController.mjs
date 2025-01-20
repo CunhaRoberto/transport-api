@@ -3,14 +3,14 @@
 import { default as UserIdPresenter } from '../presenters/SearchUsersById.mjs'
 import UserRepository from '../repositories/Users.mjs'
 import RepositoryImpl from '../../../infra/repository/index.mjs'
-import SearchUsersId from '../useCases/SearchUsersById.mjs'
+import SearchBus from '../useCases/SearchBus.mjs'
 import { default as SearchUsersIdValidator } from '../validators/SearchUsersById.mjs'
 
 const Repository = new UserRepository(RepositoryImpl)
 
 export async function search(request, response, next) {
   try {
-    const searchUsersIdUseCase = new SearchUsersId(Repository)
+    const searchUsersIdUseCase = new SearchBus(Repository)
     const resultUsers = await searchUsersIdUseCase.search()
     const presentUser = await UserIdPresenter.presentMap(resultUsers)
     return response.status(200).json(presentUser)

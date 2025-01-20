@@ -4,27 +4,27 @@
 import DataNotFoundException from '../../core/exceptions/DataNotFoundException.mjs'
 import UUIDGenerator from '../../support/UUIDGenerator.mjs'
 
-class SearchUsers {
+class SearchBus {
   constructor(repository) {
     this.repository = repository
   }
 
-  async searchById(userId) {
-    const id = UUIDGenerator.from(userId.id)
-    const resultUser = await this.repository.getById(id)
-    if (!resultUser) {
+  async searchById() {
+    // const id = UUIDGenerator.from(userId.id)
+    const result = await this.repository.getById(id)
+    if (!result) {
       throw new DataNotFoundException('User not found.')
     }
-    return resultUser
+    return result
   }
 
   async search() {
-    const resultUser = await this.repository.getAll()
-    if (!resultUser) {
+    const result = await this.repository.getAll()
+    if (!result) {
       throw new DataNotFoundException('User not found.')
     }
-    return resultUser
+    return result
   }
 }
 
-export default SearchUsers
+export default SearchBus
