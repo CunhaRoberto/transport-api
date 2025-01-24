@@ -1,6 +1,7 @@
 
 //import * as CreateUsersController from './controllers/CreateUsersController.mjs'
 import * as BusController from './controllers/BusController.mjs'
+import * as RoutesController from './controllers/RoutesController.mjs'
 //import * as UpdateUsersController from './controllers/UpdateUsersController.mjs'
 //import * as DeleteUsersController from './controllers/DeleteUsersController.mjs'
 
@@ -15,5 +16,7 @@ router.route('/bus/').get(BusController.search)
 // router.route('/user/id').put(UpdateUsersController.update)
 // router.route('/user/id').delete(DeleteUsersController.remove)
 
+
+router.route('/routes/').get(RoutesController.search)
 
 export default router
