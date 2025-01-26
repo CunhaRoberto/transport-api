@@ -23,5 +23,6 @@ router.route('/routes/').get(RoutesController.search)
 router.route('/routes/').post(RoutesController.create)
 
 router.route('/travel/').post(TravelController.create)
+router.route('/travel/').get(TravelController.search)
 
 export default router

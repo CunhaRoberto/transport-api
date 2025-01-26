@@ -3,16 +3,12 @@ import UUIDGenerator from '../../../support/UUIDGenerator.mjs'
 
 const presenterMap = (data) => {
   const resultUserSpecifications = data.map((Temp) => {
-    let id = UUIDGenerator.from(Temp._id)
+    let id = UUIDGenerator.from(Temp._id).toString()
+    Temp.idBus = UUIDGenerator.from(Temp.idBus).toString(),
+    Temp.idRoute = UUIDGenerator.from(Temp.idRoute).toString(),
+    delete Temp._id
 
-    let result = {
-      id: id.toString(),
-      language: Temp.language,
-      type: Temp.type,
-      idType: Temp.idType,
-      yearsUsefulLife: Temp.yearsUsefulLife
-    }
-
+    let result = { id, ...Temp }
     return result
   })
 
