@@ -28,11 +28,11 @@ class Create {
     }  
     
     paramDto.startDate = new Date(paramDto.startDate);
-    paramDto.finalDate = new Date(paramDto.finalDate);
+    paramDto.finishDate = new Date(paramDto.finishDate);
  
      
-    if(paramDto.startDate > paramDto.finalDate) {
-      throw new InvalidOperationException('The startDate cannot be greater than the finalDate');
+    if(paramDto.startDate > paramDto.finishDate) {
+      throw new InvalidOperationException('The startDate cannot be greater than the finishDate');
     }
 
     const id = UUIDGenerator.generate()

@@ -53,7 +53,7 @@ export default
                   require: true,
                   example: '2025-08-15T20:27:42.769Z'
                 },
-                finalDate: {
+                finishDate: {
                   type: 'string',
                   format: 'date-time',
                   require: true,

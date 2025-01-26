@@ -11,13 +11,13 @@ const schema = {
     idBus: {type: 'string', format: 'uuid'},
     idRoute: {type: 'string', format: 'uuid'},
     startDate: {type: 'string', format: 'date-time'},
-    finalDate: {type: 'string', format: 'date-time'}   
+    finishDate: {type: 'string', format: 'date-time'}   
   },
   required: [
     'idBus',
     'idRoute',
     'startDate',
-    'finalDate'
+    'finishDate'
   ],
   additionalProperties: false
 }
