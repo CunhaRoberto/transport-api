@@ -5,6 +5,7 @@
 import InvalidOperationException from '../../../core/exceptions/InvalidOperationException.mjs'
 import DataNotFoundException from '../../../core/exceptions/DataNotFoundException.mjs'
 import UUIDGenerator from '../../../support/UUIDGenerator.mjs'
+import InvalidParameterException from '../../../core/exceptions/InvalidParameterException.mjs';
 
 
 
@@ -24,9 +25,15 @@ class Create {
 
     if (!bus || !route) {
       throw new DataNotFoundException(!bus ? 'Bus not found' : 'Route not found');
-    }   
+    }  
+    
+    paramDto.startDate = new Date(paramDto.startDate);
+    paramDto.finalDate = new Date(paramDto.finalDate);
+ 
      
- /// verificar se startDate é maior que finalDate
+    if(paramDto.startDate > paramDto.finalDate) {
+      throw new InvalidOperationException('The startDate cannot be greater than the finalDate');
+    }
 
     const id = UUIDGenerator.generate()
     paramDto._id = id
