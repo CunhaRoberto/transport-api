@@ -1,12 +1,14 @@
 /* eslint-disable max-len */
 
-import { default as Presenter } from '../presenters/SearchBus.mjs'
+import { default as Presenter } from '../presenters/travel/Create.mjs'
 import TravelRepository from '../repositories/Travel.mjs'
 import RepositoryImpl from '../../../infra/repository/index.mjs'
-import Search from '../useCases/SearchTravel.mjs'
-import { default as CreateTravelValidator } from '../validators/CreateUsers.mjs'
+//import Search from '../useCases/SearchTravel.mjs'
+import Create from '../useCases/travel/Create.mjs'
+import { default as CreateTravelValidator } from '../validators/CreateTravel.mjs'
 
 const Repository = new TravelRepository(RepositoryImpl)
+
 
 export async function search(request, response, next) {
   try {

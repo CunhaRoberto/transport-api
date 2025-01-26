@@ -9,7 +9,7 @@ class SearchBus {
     this.repository = repository
   }
 
-  async searchById() {
+  async searchById(id) {
     // const id = UUIDGenerator.from(userId.id)
     const result = await this.repository.getById(id)
     if (!result) {

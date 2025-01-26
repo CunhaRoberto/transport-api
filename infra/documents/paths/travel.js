@@ -47,13 +47,13 @@ export default
                   require: true,
                   example: '95af06d5-56c5-435a-a8e9-8fe1201c3721'
                 },
-                dateIntit: {
+                startDate: {
                   type: 'string',
                   format: 'date-time',
                   require: true,
                   example: '2025-08-15T20:27:42.769Z'
                 },
-                dateFinish: {
+                finalDate: {
                   type: 'string',
                   format: 'date-time',
                   require: true,
