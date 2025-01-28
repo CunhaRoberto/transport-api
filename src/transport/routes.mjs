@@ -20,6 +20,7 @@ router.route('/bus/').get(BusController.search)
 
 
 router.route('/routes/').get(RoutesController.search)
+router.route('/routes/id').get(RoutesController.searchById)
 router.route('/routes/').post(RoutesController.create)
 
 router.route('/travel/').post(TravelController.create)

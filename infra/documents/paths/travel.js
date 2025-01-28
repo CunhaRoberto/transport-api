@@ -103,6 +103,38 @@ export default
           }
         }
         },
+      },
+      '/routes/id': {
+      get: {
+        summary: 'Search route by id',
+        description: 'Search route by id',
+        tags: ['Travel'],
+        parameters: [
+      
+          {
+            name: 'id',
+            in: 'query',
+            required: true,
+            type: 'string',
+            example: '95af06d5-56c5-435a-a8e9-8fe1201c3721'
+          }
+        ],
+        
+        responses: {
+          200: {
+            description: 'Located successfully'
+          },
+          400: {
+            description: 'Bad Request'
+          },
+          404: {
+            description: 'Not found'
+          },        
+          500: {
+            description: 'Internal server Error'
+          }
+        }
+        },
       }
 }
 
