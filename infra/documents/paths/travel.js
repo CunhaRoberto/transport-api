@@ -81,8 +81,8 @@ export default
           }
         }
         },
-    },
-    '/routes/': {
+  },
+  '/routes/': {
       get: {
         summary: 'Search routes',
         description: 'Search routes',
@@ -103,8 +103,8 @@ export default
           }
         }
         },
-      },
-      '/routes/id': {
+  },
+  '/routes/id': {
       get: {
         summary: 'Search route by id',
         description: 'Search route by id',
@@ -135,7 +135,29 @@ export default
           }
         }
         },
+  },
+  '/embarkation/': {
+    get: {
+      summary: 'Search embarkation',
+      description: 'Search embarkation',
+      tags: ['Travel'],
+      
+      responses: {
+        200: {
+          description: 'Located successfully'
+        },
+        400: {
+          description: 'Bad Request'
+        },
+        404: {
+          description: 'Not found'
+        },        
+        500: {
+          description: 'Internal server Error'
+        }
       }
+      }     
+  },
 }
 
 

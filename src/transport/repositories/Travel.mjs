@@ -24,10 +24,11 @@ class Users {
   }
 
   
-  async getAll() {
-    const data = await this.repository.getAll(this.collection)
+  async getAll(collection) {
+    const data = await this.repository.getAll(collection? collection:this.collection)
     return data
   }
+  
  
   async getById(id, collection) {
     const data = await this.repository.get(collection? collection:this.collection, id)

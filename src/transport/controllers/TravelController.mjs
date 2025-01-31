@@ -31,5 +31,16 @@ export async function create(request, response, next) {
     return response.status(201).json(present)
   } catch (error) {
     return next(error)
+  }  
+}
+
+export async function searchEmbarkation(request, response, next) {
+  try {
+    const searchUseCase = new Search(Repository)
+    const result = await searchUseCase.searchEmbarkation()
+    const presenter = await Presenter.presentMapEmb(result)
+    return response.status(200).json(presenter)
+  } catch (error) {
+    return next(error)
   }
 }

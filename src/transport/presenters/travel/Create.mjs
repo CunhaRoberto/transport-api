@@ -15,6 +15,18 @@ const presenterMap = (data) => {
   return resultUserSpecifications
 }
 
+
+const presenterMapEmb = (data) => {
+  const resultUserSpecifications = data.map((Temp) => {
+    let id = UUIDGenerator.from(Temp._id).toString()
+    delete Temp._id
+
+    let result = { id, ...Temp }
+    return result
+  })
+
+  return resultUserSpecifications
+}
 const presenter = async (data) => {
   let id = UUIDGenerator.from(data._id).toString()
   data.idBus = UUIDGenerator.from(data.idBus).toString(),
@@ -27,5 +39,7 @@ const presenter = async (data) => {
 
 export default {
   present: presenter,
-  presentMap: presenterMap
+  presentMap: presenterMap,
+  presentMapEmb: presenterMapEmb
+  
 }

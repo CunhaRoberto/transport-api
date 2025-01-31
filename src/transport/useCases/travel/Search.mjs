@@ -25,6 +25,14 @@ class Search {
     }
     return result
   }
+
+  async searchEmbarkation() {
+    const result = await this.repository.getAll('embarkation')
+    if (!result || result.length < 1 ) {
+      throw new DataNotFoundException('Embarkation not found.')
+    }
+    return result
+  }
 }
 
 export default Search
