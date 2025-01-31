@@ -9,7 +9,7 @@ class Search {
     this.repository = repository
   }
 
-  async searchById(id) {
+  async searchByCpf(id) {
     // const id = UUIDGenerator.from(userId.id)
     const result = await this.repository.getById(id)
     if (!result) {

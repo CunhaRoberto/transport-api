@@ -5,7 +5,7 @@
 import InvalidOperationException from '../../../core/exceptions/InvalidOperationException.mjs'
 import DataNotFoundException from '../../../core/exceptions/DataNotFoundException.mjs'
 import UUIDGenerator from '../../../support/UUIDGenerator.mjs'
-import InvalidParameterException from '../../../core/exceptions/InvalidParameterException.mjs';
+import AlreadyExistsException from '../../../core/exceptions/AlreadyExistsException.mjs';
 
 
 
@@ -20,11 +20,24 @@ class Create {
     
     const idTravel = UUIDGenerator.from(id.idTravel)
 
-    const travel = await this.repository.getById(idTravel)
-    
+    const [travel, seat, user] = await Promise.all([
+      this.repository.getById(idTravel),
+      this.repository.getSeatByNumber(idTravel, paramDto.seatNumber ),
+      this.repository.getSeatByCpf(idTravel, paramDto.cpf)
+      
+    ]);
+
     if (!travel) {
       throw new DataNotFoundException('Travel not found');
     }  
+    if (user.length > 0) {
+      throw new AlreadyExistsException (`the cpf has already reserved the seat ${user[0].seats.seatNumber}`);
+    } 
+
+    if (seat.length > 0) {
+      throw new AlreadyExistsException ('Already reserved seat');
+    }
+    
     
        
     const result = await this.repository.createReservation(paramDto, idTravel);

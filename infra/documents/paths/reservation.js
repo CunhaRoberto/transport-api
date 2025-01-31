@@ -116,6 +116,11 @@ export default
                 require: true,
                 example: 'JOSE CARLOS DA SILVA'
               },
+              cpf: {
+                type: 'string',
+                require: true,
+                example: '12365498778'
+              },
               cellPhone: {
                 type: 'string',
                 require: true,

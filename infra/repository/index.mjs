@@ -49,11 +49,19 @@ class RepositoryWrapper {
     )
   }
 
-  searchUserByCpf(userCpf) {
-    const statement = this.queries.searchUserByCpf
+  getSeatByNumber( idTravel, paramDto) {
+    const statement = this.queries.getSeatByNumber
     return this.impl.aggregate(
       statement.collection,
-      statement.query(userCpf)
+      statement.query( idTravel, paramDto)
+    )
+  }
+
+  getSeatByCpf( idTravel, paramDto) {
+    const statement = this.queries.getSeatByCpf
+    return this.impl.aggregate(
+      statement.collection,
+      statement.query( idTravel, paramDto)
     )
   }
 

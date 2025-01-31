@@ -34,7 +34,20 @@ class Users {
     return data
   }
 
+  async getSeatByNumber( idTravel, paramDto) {
+    const data = await this
+      .repository
+      .getSeatByNumber( idTravel, paramDto)
+
+    return data
+  }
   
+  async getSeatByCpf(idTravel, paramDto) {
+    const data = await this
+    .repository
+    .getSeatByCpf(idTravel, paramDto)
+    return data
+  }
  
 
   async getUsers(params, pagination) {
@@ -54,13 +67,6 @@ class Users {
   }
 
  
-  async getUserByCpf(userCpf) {
-    const data = await this
-      .repository
-      .searchUserByCpf(userCpf)
-
-    return data
-  }
 
   async createReservation(reservationDto, idTravel) {
     const data = await this
