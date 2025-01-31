@@ -5,6 +5,7 @@ import * as RoutesController from './controllers/RoutesController.mjs'
 import * as TravelController from './controllers/TravelController.mjs'
 //import * as UpdateUsersController from './controllers/UpdateUsersController.mjs'
 //import * as DeleteUsersController from './controllers/DeleteUsersController.mjs'
+import * as ReservationController from './controllers/ReservationController.mjs'
 
 
 import { Router } from 'express'
@@ -25,5 +26,7 @@ router.route('/routes/').post(RoutesController.create)
 
 router.route('/travel/').post(TravelController.create)
 router.route('/travel/').get(TravelController.search)
+
+router.route('/reservation/idTravel').post(ReservationController.create)
 
 export default router

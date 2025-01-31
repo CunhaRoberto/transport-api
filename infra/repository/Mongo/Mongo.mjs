@@ -97,6 +97,8 @@ class Mongo {
         { upsert: false }
       )
   }
+  
+
 
   get(collection, id) {
     return this.connection
@@ -128,6 +130,19 @@ class Mongo {
       statement.query(params)
     )
   }
+
+  createReservation(reservationDto, idTravel, collection) { 
+    const _id = idTravel
+    const seats = reservationDto;
+
+    return this.connection
+      .collection(collection)
+      .updateOne(
+        { _id },
+        { $push: { seats: seats } },  // Adiciona ao array 'seats'
+        { upsert: false }  // Não cria um novo documento se não existir
+      );
+}
   
 }
 

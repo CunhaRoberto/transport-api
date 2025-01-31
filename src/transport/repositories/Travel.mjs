@@ -10,7 +10,7 @@ class Users {
       .save(this.collection, user)
   }
 
-  async update(user) {
+  async update(user, id) {
     return this
       .repository
       .update(this.collection, user)
@@ -62,10 +62,10 @@ class Users {
     return data
   }
 
-  async getUserByEmail(userEmail) {
+  async createReservation(reservationDto, idTravel) {
     const data = await this
       .repository
-      .searchUserByEmail(userEmail)
+      .createReservation(reservationDto, idTravel, this.collection)
 
     return data
   }

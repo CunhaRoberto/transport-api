@@ -13,7 +13,11 @@ class RepositoryWrapper {
   }
 
   update(collection, data) {
-    return this.impl.update(collection, data)
+    return this.impl.updateOne(collection, data)
+  }
+
+  updateOne(collection, data) {
+    return this.impl.updateOne(collection, data)
   }
   
   get(collection, id) {
@@ -53,13 +57,10 @@ class RepositoryWrapper {
     )
   }
 
-  searchUserByEmail(userEmail) {
-    const statement = this.queries.searchUserByEmail
-    return this.impl.aggregate(
-      statement.collection,
-      statement.query(userEmail)
-    )
+  createReservation(reservationDto, idTravel, collection) {
+    return this.impl.createReservation(reservationDto, idTravel, collection)
   }
+  
 
   searchAuthUsers(params) {
     const statement = this.queries.searchAuthUsers

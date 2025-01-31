@@ -85,12 +85,19 @@ export default
       }
       },
     },
-  '/reservation': {
+  '/reservation/idTravel': {
     post: {
-      summary: 'Create user',
+      summary: 'Create reservation',
       tags: ['Reservation'],
-      description: 'Create user',
+      description: 'Create reservation',
       parameters: [
+        {
+          name: 'idTravel',
+          in: 'query',
+          required: true,
+          type: 'string',
+          format: 'uuid',
+        },
         {
           in: 'body',
           name: 'body',
@@ -98,13 +105,7 @@ export default
           require: 'require',
           schema: {
             type: 'object',
-            properties: {
-              idTravel: {
-                type: 'string',
-                format: 'uuid',
-                require: true,
-                example: '95af06d5-56c5-435a-a8e9-8fe1201c3721'
-              },
+            properties: {              
               seatNumber: {
                 type: 'number',
                 require: true,
