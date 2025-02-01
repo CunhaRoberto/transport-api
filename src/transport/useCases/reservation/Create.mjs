@@ -38,14 +38,20 @@ class Create {
       throw new AlreadyExistsException ('Already reserved seat');
     }
     
-    
+    paramDto.reservation_created_at = new Date();
        
     const result = await this.repository.createReservation(paramDto, idTravel);
     if (!result) {
       throw new InvalidOperationException('Failed to create record.');
     }
-    paramDto._id = id
-    return paramDto;
+    
+    delete travel.seats
+    
+
+    return {
+      ...travel,
+      ...paramDto
+    } ;
   }
 }
 

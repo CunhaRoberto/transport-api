@@ -37,9 +37,21 @@ const presenter = async (data) => {
   return result
 }
 
+const presenterReservation = async (data) => {
+   const idTravel = UUIDGenerator.from(data._id).toString()
+   data.idBus = UUIDGenerator.from(data.idBus).toString(),
+   data.idRoute = UUIDGenerator.from(data.idRoute).toString(),
+  delete data._id
+  delete data.create_at
+  
+  const result = { idTravel, ...data}
+  return result
+}
+
 export default {
   present: presenter,
   presentMap: presenterMap,
-  presentMapEmb: presenterMapEmb
+  presentMapEmb: presenterMapEmb,
+  presentReservation: presenterReservation
   
 }

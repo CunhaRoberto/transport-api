@@ -28,7 +28,7 @@ export async function create(request, response, next) {
     //await CreateTravelValidator.validate(reservationDto)    
     const createUseCase = new Create(Repository)
     const result = await createUseCase.execute(reservationDto, idTravel)
-    const present = await Presenter.present(result)
+    const present = await Presenter.presentReservation(result)
     return response.status(201).json(present)
   } catch (error) {
     return next(error)
