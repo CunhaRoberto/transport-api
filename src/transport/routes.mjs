@@ -26,6 +26,7 @@ router.route('/routes/').post(RoutesController.create)
 
 router.route('/travel/').post(TravelController.create)
 router.route('/travel/').get(TravelController.search)
+router.route('/travel/id').get(TravelController.searchById)
 
 router.route('/embarkation/').get(TravelController.searchEmbarkation)
 

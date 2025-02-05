@@ -21,6 +21,19 @@ export async function search(request, response, next) {
   }
 }
 
+export async function searchById(request, response, next) {
+  try {
+    const searchUseCase = new Search(Repository)
+    const id = request.query
+    const result = await searchUseCase.searchById(id)
+    const presenter = await Presenter.present(result)
+    return response.status(200).json(presenter)
+  } catch (error) {
+    return next(error)
+  }
+}
+
+
 export async function create(request, response, next) {
   try {
     const travelDto = request.body

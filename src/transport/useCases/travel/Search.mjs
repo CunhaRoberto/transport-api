@@ -9,11 +9,11 @@ class Search {
     this.repository = repository
   }
 
-  async searchById(id) {
-    // const id = UUIDGenerator.from(userId.id)
+  async searchById(idTravel) {
+    const id = UUIDGenerator.from(idTravel.id)
     const result = await this.repository.getById(id)
     if (!result) {
-      throw new DataNotFoundException('User not found.')
+      throw new DataNotFoundException('Travel not found.')
     }
     return result
   }
