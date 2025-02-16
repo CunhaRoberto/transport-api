@@ -15,6 +15,13 @@ class Search {
     if (!result) {
       throw new DataNotFoundException('Travel not found.')
     }
+    const [bus, route] = await Promise.all([
+      this.repository.getById(UUIDGenerator.from(result.idBus), 'bus'),
+      this.repository.getById(UUIDGenerator.from(result.idRoute), 'routes' )
+    ]);
+
+    result.totalSeats = bus.quantidadePoltronas
+    result.nameRoute = route.name
     return result
   }
 
