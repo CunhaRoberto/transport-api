@@ -51,6 +51,14 @@ class Users {
   }
  
 
+   
+  async getAllReservationsByCpf(cpf) {
+    const data = await this
+    .repository
+    .getAllReservationsByCpf(cpf)
+    return data
+  }
+
   async getUsers(params, pagination) {
     const data = await this
       .repository

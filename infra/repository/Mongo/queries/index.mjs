@@ -6,6 +6,7 @@ import { default as searchAuthUsers } from './searchAuthUsers.mjs'
 import { default as searchRefreshToken } from './searchRefreshToken.mjs'
 import { default as searchByCode } from './searchByCode.mjs'
 import { default as searchUserById } from './searchUserById.mjs'
+import { default as getAllReservationsByCpf } from './getAllReservationsByCpf.mjs'
 
 export {
 
@@ -16,5 +17,6 @@ searchByCode,
 searchUserById,
 searchRefreshToken,
 getSeatByNumber,
-getSeatByCpf
+getSeatByCpf,
+getAllReservationsByCpf
 }

@@ -18,6 +18,15 @@ class Search {
     return result
   }
 
+  async searchByCpf(params) {
+    
+    const result = await this.repository.getAllReservationsByCpf(params.cpf)
+    if (!result) {
+      throw new DataNotFoundException('Travel not found.')
+    }
+    return result
+  }
+
   async search() {
     const result = await this.repository.getAll()
     if (!result) {

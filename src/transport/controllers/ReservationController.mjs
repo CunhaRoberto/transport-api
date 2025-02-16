@@ -21,6 +21,18 @@ export async function search(request, response, next) {
   }
 }
 
+export async function searchByCpf(request, response, next) {
+  try {
+    const cpf = request.query
+    const searchUseCase = new Search(Repository)
+    const result = await searchUseCase.searchByCpf(cpf)
+    const presenter = await Presenter.presentMap(result)
+    return response.status(200).json(presenter)
+  } catch (error) {
+    return next(error)
+  }
+}
+
 export async function create(request, response, next) {
   try {
     const reservationDto = request.body

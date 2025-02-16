@@ -32,4 +32,6 @@ router.route('/embarkation/').get(TravelController.searchEmbarkation)
 
 router.route('/reservation/idTravel').post(ReservationController.create)
 
+router.route('/reservation/cpf').get(ReservationController.searchByCpf)
+
 export default router

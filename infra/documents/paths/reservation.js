@@ -266,6 +266,36 @@ export default
           }
         }
       }
+  },
+  '/reservation/cpf': {
+    get: {
+      summary: 'Search reservations by cpf',
+      description: 'Search reservations by cpf',
+      tags: ['Reservation'],
+      parameters: [
+      
+        {
+          name: 'cpf',
+          in: 'query',
+          required: true,
+          type: 'string'
+        }
+      ],
+      responses: {
+        200: {
+          description: 'Located successfully'
+        },
+        400: {
+          description: 'Bad Request'
+        },
+        404: {
+          description: 'Not found'
+        },      
+        500: {
+          description: 'Internal server Error'
+        }
+      }
+    }
   } 
 }
 

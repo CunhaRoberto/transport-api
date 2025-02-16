@@ -4,8 +4,8 @@ import UUIDGenerator from '../../../support/UUIDGenerator.mjs'
 const presenterMap = (data) => {
   const resultUserSpecifications = data.map((Temp) => {
     let id = UUIDGenerator.from(Temp._id).toString()
-    Temp.idBus = UUIDGenerator.from(Temp.idBus).toString(),
-    Temp.idRoute = UUIDGenerator.from(Temp.idRoute).toString(),
+    //Temp.idBus = UUIDGenerator.from(Temp.idBus).toString(),
+    //Temp.idRoute = UUIDGenerator.from(Temp.idRoute).toString(),
     delete Temp._id
 
     let result = { id, ...Temp }
