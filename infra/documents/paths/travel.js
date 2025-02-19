@@ -39,13 +39,13 @@ export default
                   type: 'string',
                   format: 'uuid',
                   require: true,
-                  example: '95af06d5-56c5-435a-a8e9-8fe1201c3721'
+                  example: '38aca0f3-9ed1-441c-a308-a5b1edede909'
                 },
                 idRoute: {
                   type: 'string',
                   format: 'uuid',
                   require: true,
-                  example: '95af06d5-56c5-435a-a8e9-8fe1201c3721'
+                  example: '59dfeb8b-d6fd-4a3c-b582-4b664b299be4'
                 },
                 startDate: {
                   type: 'string',

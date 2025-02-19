@@ -38,7 +38,11 @@ class Create {
     const id = UUIDGenerator.generate()
     paramDto._id = id
     paramDto.idBus = UUIDGenerator.from(paramDto.idBus)
+    paramDto.prefBus = bus.prefixo
+    paramDto.caracterizado = bus.caracterizado
+    paramDto.totalSeats = bus.quantidadePoltronas
     paramDto.idRoute = UUIDGenerator.from(paramDto.idRoute)
+    paramDto.nameRoute = route.name
     paramDto.created_at = new Date();
     const result = await this.repository.save(paramDto);
     if (!result) {
