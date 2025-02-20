@@ -29,6 +29,12 @@ class Users {
     return data
   }
   
+  async getAllTravelActive() {
+    const data = await this
+    .repository
+    .getAllTravelActive()
+    return data
+  }
  
   async getById(id, collection) {
     const data = await this.repository.get(collection? collection:this.collection, id)

@@ -29,6 +29,16 @@ class RepositoryWrapper {
     return this.impl.getAll(collection)
   }
 
+ 
+
+  getAllReservationsByCpf( idTravel, paramDto) {
+    const statement = this.queries.getAllReservationsByCpf
+    return this.impl.aggregate(
+      statement.collection,
+      statement.query( idTravel, paramDto)
+    )
+  }
+
   remove(collection, id) {
     return this.impl.remove(collection, id)
   }
@@ -71,6 +81,14 @@ class RepositoryWrapper {
     return this.impl.aggregate(
       statement.collection,
       statement.query( idTravel, paramDto)
+    )
+  }
+
+  getAllTravelActive() {
+    const statement = this.queries.getAllTravelActive
+    return this.impl.aggregate(
+      statement.collection,
+      statement.query()
     )
   }
 

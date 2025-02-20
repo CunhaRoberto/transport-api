@@ -35,7 +35,7 @@ class Search {
   }
 
   async search() {
-    const result = await this.repository.getAll()
+    const result = await this.repository.getAllTravelActive()
     if (!result) {
       throw new DataNotFoundException('Travel not found.')
     }
