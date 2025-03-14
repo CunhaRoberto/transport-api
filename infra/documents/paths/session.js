@@ -3,7 +3,7 @@ export default
   '/auth/login': {
     post: {
       summary: 'Authentication user',
-      tags: ['Auth'],
+      tags: ['Session'],
       description: 'Authentication user',
       parameters: [
         {
@@ -51,7 +51,7 @@ export default
   '/auth/forgot_password': {
     post: {
       summary: 'Forgot password',
-      tags: ['Auth'],
+      tags: ['Session'],
       description: 'Forgot password',
       parameters: [
         {
@@ -91,7 +91,7 @@ export default
     '/auth/new_password': {
       post: {
         summary: 'Create new password',
-        tags: ['Auth'],
+        tags: ['Session'],
         description: 'Create new password',
         parameters: [
           {
@@ -141,7 +141,7 @@ export default
       '/auth/refresh_token': {
         post: {
           summary: 'Refresch token',
-          tags: ['Auth'],
+          tags: ['Session'],
           description: 'Refresch token',
           parameters: [
             {

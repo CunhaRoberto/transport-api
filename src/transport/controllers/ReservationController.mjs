@@ -1,6 +1,6 @@
 /* eslint-disable max-len */
 
-import { default as Presenter } from '../presenters/travel/Create.mjs'
+import { default as Presenter } from '../presenters/travel/Search.mjs'
 import TravelRepository from '../repositories/Travel.mjs'
 import RepositoryImpl from '../../../infra/repository/index.mjs'
 import Search from '../useCases/travel/Search.mjs'
@@ -26,7 +26,7 @@ export async function searchByCpf(request, response, next) {
     const cpf = request.query
     const searchUseCase = new Search(Repository)
     const result = await searchUseCase.searchByCpf(cpf)
-    const presenter = await Presenter.presentMap(result)
+    const presenter = await Presenter.presentAllReservation(result)
     return response.status(200).json(presenter)
   } catch (error) {
     return next(error)

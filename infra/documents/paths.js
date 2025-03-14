@@ -3,13 +3,13 @@ import user from './paths/user.js'
 import bus from './paths/bus.js'
 import travel from './paths/travel.js'
 import reservation from './paths/reservation.js'
-import authentication from './paths/authentication.js'
+import session from './paths/session.js'
 
 
 let paths = Object.assign(
   healthCheck,
   user,
-  authentication,
+  session,
   bus,
   travel,
   reservation

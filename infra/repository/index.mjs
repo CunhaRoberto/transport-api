@@ -76,11 +76,11 @@ class RepositoryWrapper {
   }
 
   
-  getAllReservationsByCpf( idTravel, paramDto) {
+  getAllReservationsByCpf( paramDto) {
     const statement = this.queries.getAllReservationsByCpf
     return this.impl.aggregate(
       statement.collection,
-      statement.query( idTravel, paramDto)
+      statement.query( paramDto)
     )
   }
 
