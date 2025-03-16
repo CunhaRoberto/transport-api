@@ -9,19 +9,13 @@ class Search {
     this.repository = repository
   }
 
-  async searchById(idTravel) {
-    const id = UUIDGenerator.from(idTravel.id)
+  async searchById(idEmbarkation) {
+    const id = UUIDGenerator.from(idEmbarkation.id)
     const result = await this.repository.getById(id)
     if (!result) {
-      throw new DataNotFoundException('Travel not found.')
+      throw new DataNotFoundException('Embarkation not found.')
     }
-    const [bus, route] = await Promise.all([
-      this.repository.getById(UUIDGenerator.from(result.idBus), 'bus'),
-      this.repository.getById(UUIDGenerator.from(result.idRoute), 'routes' )
-    ]);
-
-    result.totalSeats = bus.quantidadePoltronas
-    result.nameRoute = route.name
+  
     return result
   }
 
@@ -31,14 +25,8 @@ class Search {
     if (!result) {
       throw new DataNotFoundException('Travel not found.')
     }
-
-
-
-    
     return result
   }
-
-
 
   async search() {
     const result = await this.repository.getAllTravelActive()

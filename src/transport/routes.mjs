@@ -6,6 +6,7 @@ import * as TravelController from './controllers/TravelController.mjs'
 //import * as UpdateUsersController from './controllers/UpdateUsersController.mjs'
 //import * as DeleteUsersController from './controllers/DeleteUsersController.mjs'
 import * as ReservationController from './controllers/ReservationController.mjs'
+import * as EmbarkationController from './controllers/EmbarkationController.mjs'
 
 
 import { Router } from 'express'
@@ -28,10 +29,10 @@ router.route('/travel/').post(TravelController.create)
 router.route('/travel/').get(TravelController.search)
 router.route('/travel/id').get(TravelController.searchById)
 
-router.route('/embarkation/').get(TravelController.searchEmbarkation)
+router.route('/embarkation/').get(EmbarkationController.searchEmbarkation)
+router.route('/embarkation/id').get(EmbarkationController.searchById)
 
 router.route('/reservation/idTravel').post(ReservationController.create)
-
 router.route('/reservation/cpf').get(ReservationController.searchByCpf)
 
 export default router

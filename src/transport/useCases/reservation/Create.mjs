@@ -39,7 +39,6 @@ class Create {
     }
     
     paramDto.reservation_created_at = new Date();
-       
     const result = await this.repository.createReservation(paramDto, idTravel);
     if (!result) {
       throw new InvalidOperationException('Failed to create record.');

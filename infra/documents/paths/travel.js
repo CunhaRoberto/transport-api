@@ -191,6 +191,38 @@ export default
       }
       }     
   },
+  '/embarkation/id': {
+      get: {
+        summary: 'Search embarkation by id',
+        description: 'Search embarkation by id',
+        tags: ['Travel'],
+        parameters: [
+      
+          {
+            name: 'id',
+            in: 'query',
+            required: true,
+            type: 'string',
+            example: '6ffbfeda-3e60-4ed6-a918-e578e6d7aef5'
+          }
+        ],
+        
+        responses: {
+          200: {
+            description: 'Located successfully'
+          },
+          400: {
+            description: 'Bad Request'
+          },
+          404: {
+            description: 'Not found'
+          },        
+          500: {
+            description: 'Internal server Error'
+          }
+        }
+        },
+  }
 }
 
 
