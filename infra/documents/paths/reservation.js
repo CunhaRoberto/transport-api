@@ -121,12 +121,18 @@ export default
                 require: true,
                 example: '12365498778'
               },
-              cellPhone: {
+              idEmbarkation: {
                 type: 'string',
                 require: true,
-                example: '11912345678'
+                example: '1159387e1-a336-46b3-930f-f074e168e260'
+              },
+              motive: {
+                type: 'string',
+                require: true,
+                example: 'CFS/ CAS'
               }
-            }
+            },
+            
           }
         }
       ],

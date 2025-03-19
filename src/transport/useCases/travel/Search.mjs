@@ -26,17 +26,21 @@ class Search {
   }
 
   async searchByCpf(params) {
-    
-    const result = await this.repository.getAllReservationsByCpf(params.cpf)
-    if (!result) {
-      throw new DataNotFoundException('Travel not found.')
+    const result = await this.repository.getAllReservationsByCpf(params.cpf);
+
+    if (!result || result.length === 0) {
+      throw new DataNotFoundException('Travel not found.');
     }
 
-
-
+    const reservation = await Promise.all(result.map(async (reservation) => {        
+      const embarkationDetails = await this.repository.getById(UUIDGenerator.from(reservation.seats.idEmbarkation), 'embarkation')
+      reservation.seats.embarkation = embarkationDetails.name       
+      return { ...reservation };
+    }));
     
-    return result
+    return reservation;    
   }
+  
 
 
 
