@@ -139,10 +139,24 @@ class Mongo {
       .collection(collection)
       .updateOne(
         { _id },
-        { $push: { seats: seats } },  // Adiciona ao array 'seats'
-        { upsert: false }  // Não cria um novo documento se não existir
+        { $push: { seats: seats } },  
+        { upsert: false }  
       );
 }
+
+removeReservation(cpf, idTravel, collection) {
+  const _id = idTravel;
+  
+
+  return this.connection
+    .collection(collection)
+    .updateOne(
+      { _id },
+      { $pull: { seats: { cpf: cpf } } },
+      { upsert: false }
+    );
+}
+
   
 }
 

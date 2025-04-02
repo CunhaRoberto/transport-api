@@ -5,6 +5,7 @@ import TravelRepository from '../repositories/Travel.mjs'
 import RepositoryImpl from '../../../infra/repository/index.mjs'
 import Search from '../useCases/travel/Search.mjs'
 import Create from '../useCases/reservation/Create.mjs'
+import Remove from '../useCases/reservation/Remove.mjs'
 import { default as CreateTravelValidator } from '../validators/CreateTravel.mjs'
 
 const Repository = new TravelRepository(RepositoryImpl)
@@ -42,6 +43,20 @@ export async function create(request, response, next) {
     const result = await createUseCase.execute(reservationDto, idTravel)
     const present = await Presenter.presentReservation(result)
     return response.status(201).json(present)
+  } catch (error) {
+    return next(error)
+  }
+}
+
+
+export async function remove(request, response, next) {
+  try {
+    const reservationDto = request.query
+    //await DeleteUsersIdValidator.validate(reservationDto)
+
+    const removeUseCase = new Remove(Repository)
+    const resultIUsers = await removeUseCase.execute(reservationDto)
+    return response.status(200).json(resultIUsers)
   } catch (error) {
     return next(error)
   }

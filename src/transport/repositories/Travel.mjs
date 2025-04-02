@@ -81,6 +81,14 @@ class Users {
     return data
   }
 
+  async removeSeatByCpf(reservationDto, idTravel) {
+    const data = await this
+      .repository
+      .removeSeatByCpf(reservationDto, idTravel, this.collection)
+
+    return data
+  }
+
  
 
   async createReservation(reservationDto, idTravel) {

@@ -255,6 +255,12 @@ export default
           required: true,
           type: "string",
           format: "uuid"
+        },
+        {
+          in: 'query',
+          name: 'cpf',
+          required: true,
+          type: 'string'
         }
       ],
       responses: {

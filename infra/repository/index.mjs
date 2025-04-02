@@ -75,6 +75,11 @@ class RepositoryWrapper {
     )
   }
 
+ 
+  removeSeatByCpf(reservationDto, idTravel, collection) {
+    return this.impl.removeReservation(reservationDto, idTravel, collection)
+  }
+  
   
   getAllReservationsByCpf( paramDto) {
     const statement = this.queries.getAllReservationsByCpf
