@@ -39,6 +39,23 @@ class RepositoryWrapper {
     )
   }
 
+  searchUserByCpf(userCpf) {
+    const statement = this.queries.searchUserByCpf
+    return this.impl.aggregate(
+      statement.collection,
+      statement.query(userCpf)
+    )
+  }
+
+  searchUserByEmail(userEmail) {
+    const statement = this.queries.searchUserByEmail
+    return this.impl.aggregate(
+      statement.collection,
+      statement.query(userEmail)
+    )
+  }
+
+
   remove(collection, id) {
     return this.impl.remove(collection, id)
   }

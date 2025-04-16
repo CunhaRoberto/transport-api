@@ -8,9 +8,10 @@ import { default as searchByCode } from './searchByCode.mjs'
 import { default as searchUserById } from './searchUserById.mjs'
 import { default as getAllReservationsByCpf } from './getAllReservationsByCpf.mjs'
 import { default as getAllTravelActive } from './getAllTravelActive.mjs'
+import { default as searchUserByEmail } from './searchUserByEmail.mjs'
 
 export {
-
+searchUserByEmail,
 searchUserByCpf,
 createReservation,
 searchAuthUsers,
