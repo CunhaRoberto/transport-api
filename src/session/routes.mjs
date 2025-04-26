@@ -3,7 +3,6 @@ import * as ForgotPasswordController from './controllers/ForgotPasswordControlle
 import * as CreateNewPasswordController from './controllers/CreateNewPasswordController.mjs'
 import * as RefreshTokenController from './controllers/RefreshTokenController.mjs'
 
-import authToken from '../../infra/json_webtoken/authToken.mjs';
 import { Router } from 'express'
 
 const router = Router()
