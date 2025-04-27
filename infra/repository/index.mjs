@@ -13,7 +13,7 @@ class RepositoryWrapper {
   }
 
   update(collection, data) {
-    return this.impl.updateOne(collection, data)
+    return this.impl.update(collection, data)
   }
 
   updateOne(collection, data) {
