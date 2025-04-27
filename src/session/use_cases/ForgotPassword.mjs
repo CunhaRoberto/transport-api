@@ -69,7 +69,7 @@ class CreateUsers {
 
   
    const message = {
-     from: 'NO REPLY<>',
+     from: 'NO REPLY<NOREPLY@gmail.com',
      to: param.email,
      subject: 'Transporte Seguro CPI-5 - Código para cadastrar nova senha',
      
