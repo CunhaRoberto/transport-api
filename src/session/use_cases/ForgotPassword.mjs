@@ -69,10 +69,12 @@ class CreateUsers {
 
   
    const message = {
-     from: 'User - Api <rcunha@live.com>',
+     from: 'NO REPLY<>',
      to: param.email,
-     subject: 'Código para cadastrar nova senha',
-     html: `<p> Olá ${user[0].name}, utilize o código <strong> ${token} </strong> para cadastrar a nova senha.</p>`
+     subject: 'Transporte Seguro CPI-5 - Código para cadastrar nova senha',
+     
+     html: `<p> Transporte Seguro - CPI-5.</p>`
+           `<p> Olá ${user[0].name}, utilize o código <strong> ${token} </strong> para cadastrar a nova senha.</p>`
    };
 
     const dataCode = {
