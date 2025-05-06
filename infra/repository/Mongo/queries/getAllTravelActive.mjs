@@ -7,7 +7,7 @@ const query = () => {
       }
     },
     {
-      $sort: { startDate: -1 } 
+      $sort: { startDate: 1 } 
     }
   ];
 
