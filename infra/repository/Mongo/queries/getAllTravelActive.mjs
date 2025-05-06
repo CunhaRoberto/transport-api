@@ -2,13 +2,16 @@ const query = () => {
   const now = new Date();
   const newQuery = [
     {
-      $match: {       
+      $match: {
         startDate: { $gt: now }
       }
+    },
+    {
+      $sort: { startDate: -1 } 
     }
-  ]
+  ];
 
-  return newQuery
+  return newQuery;
 }
 
 export default {
