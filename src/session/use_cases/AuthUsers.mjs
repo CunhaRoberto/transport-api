@@ -36,6 +36,7 @@ class AuthhUser {
       token: resultToken.token,
       refresh_token: resultToken.refresh_token,
       idUser: result[0]._id,
+      cpf: result[0].cpf,
       created_at : new Date(),
       expires_token_date: resultToken.expiresTokenDate
     }    
