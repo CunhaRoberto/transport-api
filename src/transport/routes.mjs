@@ -34,6 +34,7 @@ router.route('/embarkation/id').get(EmbarkationController.searchById)
 
 router.route('/reservation/idTravel').post(ReservationController.create)
 router.route('/reservation/idTravel').delete(ReservationController.remove)
-router.route('/reservation/cpf').get(ReservationController.searchByCpf)
+//router.route('/reservation/cpf').get(ReservationController.searchByCpf)
+router.route('/reservation/idUser').get(ReservationController.searchByIdUser)
 
 export default router

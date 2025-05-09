@@ -309,7 +309,7 @@ export default
       }
     }
   },
-  '/reservation/cpf': {
+  '/reservation/idUser': {
     get: {
       summary: 'Search reservations by cpf',
       description: 'Search reservations by cpf',
@@ -317,7 +317,7 @@ export default
       parameters: [
       
         {
-          name: 'cpf',
+          name: 'idUser',
           in: 'query',
           required: true,
           type: 'string'

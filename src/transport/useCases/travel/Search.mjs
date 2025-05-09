@@ -25,8 +25,14 @@ class Search {
     return result
   }
 
-  async searchByCpf(params) {
-    const result = await this.repository.getAllReservationsByCpf(params.cpf);
+  async searchByIdUser(params) {
+
+    const user = await this.repository.getById(UUIDGenerator.from(params.idUser), 'user')
+    if (!user || user.length === 0) {
+      throw new DataNotFoundException('User not found.');
+    }
+
+    const result = await this.repository.getAllReservationsByCpf(user.cpf);
 
     if (!result || result.length === 0) {
       throw new DataNotFoundException('Travel not found.');

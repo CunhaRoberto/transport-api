@@ -22,11 +22,11 @@ export async function search(request, response, next) {
   }
 }
 
-export async function searchByCpf(request, response, next) {
+export async function searchByIdUser(request, response, next) {
   try {
-    const cpf = request.query
+    const idUser = request.query
     const searchUseCase = new Search(Repository)
-    const result = await searchUseCase.searchByCpf(cpf)
+    const result = await searchUseCase.searchByIdUser(idUser)
     const presenter = await Presenter.presentAllReservation(result)
     return response.status(200).json(presenter)
   } catch (error) {
