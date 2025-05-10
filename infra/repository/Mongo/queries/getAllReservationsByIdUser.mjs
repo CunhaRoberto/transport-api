@@ -1,10 +1,10 @@
-const query = (cpf) => {
+const query = (idUser) => {
   return [
     { 
       $unwind: "$seats" // Expande os assentos em documentos separados
     },
     { 
-      $match: { "seats.cpf": cpf } // Filtra pelo número do cpf no assento
+      $match: { "seats.idUser": idUser } // Filtra pelo número do cpf no assento
     },
     { 
       $sort: { "startDate":-1 } // Ordena pela startDate em ordem crescente (1) ou decrescente (-1)

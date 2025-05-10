@@ -144,7 +144,7 @@ class Mongo {
       );
 }
 
-removeReservation(cpf, idTravel, collection) {
+removeReservation(idUser, idTravel, collection) {
   const _id = idTravel;
   
 
@@ -152,7 +152,7 @@ removeReservation(cpf, idTravel, collection) {
     .collection(collection)
     .updateOne(
       { _id },
-      { $pull: { seats: { cpf: cpf } } },
+      { $pull: { seats: { idUser: idUser } } },
       { upsert: false }
     );
 }

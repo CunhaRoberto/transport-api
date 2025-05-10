@@ -251,16 +251,20 @@ export default
         {
           in: "query",
           name: "id",
-          description: "User Id",
+          description: "Travel id",
           required: true,
           type: "string",
-          format: "uuid"
+          format: "uuid",
+          example: '1159387e1-a336-46b3-930f-f074e168e260'
         },
         {
           in: 'query',
-          name: 'cpf',
+          name: 'idUser',
+          description: "User id",
           required: true,
-          type: 'string'
+          type: 'string',
+          format: "uuid",
+          example: '1159387e1-a336-46b3-930f-f074e168e260'
         }
       ],
       responses: {

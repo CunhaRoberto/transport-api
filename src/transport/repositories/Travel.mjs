@@ -49,19 +49,19 @@ class Users {
     return data
   }
   
-  async getSeatByCpf(idTravel, paramDto) {
+  async getSeatByIdUser(idTravel, paramDto) {
     const data = await this
     .repository
-    .getSeatByCpf(idTravel, paramDto)
+    .getSeatByIdUser(idTravel, paramDto)
     return data
   }
  
 
    
-  async getAllReservationsByCpf(cpf) {
+  async getAllReservationsByIdUser(cpf) {
     const data = await this
     .repository
-    .getAllReservationsByCpf(cpf)
+    .getAllReservationsByIdUser(cpf)
     return data
   }
 
@@ -81,10 +81,10 @@ class Users {
     return data
   }
 
-  async removeSeatByCpf(reservationDto, idTravel) {
+  async removeSeatByIdUser(idUser, idTravel) {
     const data = await this
       .repository
-      .removeSeatByCpf(reservationDto, idTravel, this.collection)
+      .removeSeatByIdUser(idUser, idTravel, this.collection)
 
     return data
   }

@@ -11,13 +11,14 @@ class Remove {
 
     async execute(reservationDto) {
       const idTravel = UUIDGenerator.from(reservationDto.id)
+      const idUser = UUIDGenerator.from(reservationDto.idUser)
 
-    const resultId = await this.repository.removeSeatByCpf(reservationDto.cpf , idTravel);
+    const resultId = await this.repository.removeSeatByIdUser(idUser , idTravel);
     if (resultId.modifiedCount === 1) {
       return { message: 'Removed Success' }
 
     }
-    throw new DataNotFoundException('Reservation not found by CPF.');
+    throw new DataNotFoundException('Reservation not found by Id User.');
   }
 }
 

@@ -84,8 +84,8 @@ class RepositoryWrapper {
     )
   }
 
-  getSeatByCpf( idTravel, paramDto) {
-    const statement = this.queries.getSeatByCpf
+  getSeatByIdUser( idTravel, paramDto) {
+    const statement = this.queries.getSeatByIdUser
     return this.impl.aggregate(
       statement.collection,
       statement.query( idTravel, paramDto)
@@ -93,13 +93,13 @@ class RepositoryWrapper {
   }
 
  
-  removeSeatByCpf(reservationDto, idTravel, collection) {
-    return this.impl.removeReservation(reservationDto, idTravel, collection)
+  removeSeatByIdUser(idUser, idTravel, collection) {
+    return this.impl.removeReservation(idUser, idTravel, collection)
   }
   
   
-  getAllReservationsByCpf( paramDto) {
-    const statement = this.queries.getAllReservationsByCpf
+  getAllReservationsByIdUser( paramDto) {
+    const statement = this.queries.getAllReservationsByIdUser
     return this.impl.aggregate(
       statement.collection,
       statement.query( paramDto)

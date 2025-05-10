@@ -25,20 +25,23 @@ class Search {
     return result
   }
 
-  async searchByIdUser(params) {
+  async searchByIdUser(paramDto) {    
+    
+    paramDto.idUser = UUIDGenerator.from(paramDto.idUser)
 
-    const user = await this.repository.getById(UUIDGenerator.from(params.idUser), 'user')
-    if (!user || user.length === 0) {
-      throw new DataNotFoundException('User not found.');
-    }
 
-    const result = await this.repository.getAllReservationsByCpf(user.cpf);
+    const [user, reservations] = await Promise.all([
+      this.repository.getById(paramDto.idUser, 'user'),      
+      this.repository.getAllReservationsByIdUser(paramDto.idUser)      
+    ]);
 
-    if (!result || result.length === 0) {
+    if (!user || user.length === 0) throw new DataNotFoundException('User not found.');
+    if (!reservations || reservations.length === 0) {
       throw new DataNotFoundException('Travel not found.');
     }
 
-    const reservation = await Promise.all(result.map(async (reservation) => {        
+
+    const reservation = await Promise.all(reservations.map(async (reservation) => {        
       const embarkationDetails = await this.repository.getById(UUIDGenerator.from(reservation.seats.idEmbarkation), 'embarkation')
       reservation.seats.embarkation = embarkationDetails.name       
       return { ...reservation };

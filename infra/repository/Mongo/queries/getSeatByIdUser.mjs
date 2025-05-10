@@ -1,4 +1,4 @@
-const query = (idTravel, cpf) => {
+const query = (idTravel, idUser) => {
   return [
     { 
       $match: { _id: idTravel } // Filtra a viagem pelo ID
@@ -7,12 +7,12 @@ const query = (idTravel, cpf) => {
       $unwind: "$seats" // Expande os assentos em documentos separados
     },
     { 
-      $match: { "seats.cpf": cpf } // Filtra pelo número do assento
+      $match: { "seats.idUser": idUser } // Filtra pelo número do assento
     },
     { 
       $project: {
          _id: 0, 
-         "seats.cpf": 1,
+         "seats.idUser": 1,
         "seats.seatNumber":1 } // Retorna apenas o número do assento, sem _id
     }
   ];
