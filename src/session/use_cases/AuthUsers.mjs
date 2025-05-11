@@ -32,7 +32,7 @@ class AuthUser {
     const dto = {
       idUser : UUIDGenerator.from(result[0]._id).toString(),
       cpf: result[0].cpf,
-      nome: result[0].nome
+      nome: result[0].name
     }
     const resultToken = GenerateToken.generateToken(dto)
       
