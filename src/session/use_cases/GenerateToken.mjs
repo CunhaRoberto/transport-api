@@ -4,7 +4,7 @@ import auth from '../../../config/auth.mjs'
 import ms from 'ms'
 
 
-const generateToken = (idUser) => { 
+const generateToken = (idUser, cpfUser) => { 
 
   const {
     secret_token,        
@@ -26,6 +26,7 @@ const generateToken = (idUser) => {
   const refresh_token = jwt.sign(
     {
       idUser,
+      cpf: cpfUser,
       expiresIn : expiresRefreshToken
     },
     secret_refresh_token,

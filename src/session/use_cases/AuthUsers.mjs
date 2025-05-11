@@ -7,7 +7,7 @@ import bcrypt from 'bcrypt'
 import UUIDGenerator from '../../support/UUIDGenerator.mjs'
 import { default as GenerateToken } from '../use_cases/GenerateToken.mjs'
 
-class AuthhUser {
+class AuthUser {
   constructor(repository) {
     this.repository = repository
   }
@@ -28,7 +28,8 @@ class AuthhUser {
     }
 
     const idUserRes = UUIDGenerator.from(result[0]._id).toString()
-    const resultToken = GenerateToken.generateToken(idUserRes)
+    const cpfUser = result[0].cpf
+    const resultToken = GenerateToken.generateToken(idUserRes, cpfUser)
       
    
     const tokenDto = {
@@ -50,4 +51,4 @@ class AuthhUser {
   }
 }
 
-export default AuthhUser
+export default AuthUser
