@@ -17,6 +17,7 @@ const generateToken = (idUser, cpfUser) => {
   const token = jwt.sign(
     {
       idUser,
+      cpf: cpfUser,
       expiresIn : expiresToken,          
     },
     secret_token,
