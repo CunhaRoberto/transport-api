@@ -3,7 +3,7 @@ import jwt from 'jsonwebtoken'
 import auth from '../../../config/auth.mjs'
 import ms from 'ms'
 
-const generateToken = (idUser, cpfUser) => { 
+const generateToken = (dto) => { 
   const {
     secret_token,        
     secret_refresh_token,
@@ -13,8 +13,7 @@ const generateToken = (idUser, cpfUser) => {
 
   const token = jwt.sign(
     {
-      idUser,
-      cpf: cpfUser
+      ...dto
     },
     secret_token,
     {
@@ -24,8 +23,7 @@ const generateToken = (idUser, cpfUser) => {
   
   const refresh_token = jwt.sign(
     {
-      idUser,
-      cpf: cpfUser
+      ...dto
     },
     secret_refresh_token,
     {
