@@ -21,7 +21,7 @@ class CreateUsers {
       ENVIRONMENT 
     } = process.env
     // Check if the user exists
-    const user = await this.repository.getUserByEmail(param.email);
+    const user = await this.repository.getUserByEmail(param.email.toLowerCase());
 
     if (user.length < 1) {
       throw new DataNotFoundException('User not found.');
