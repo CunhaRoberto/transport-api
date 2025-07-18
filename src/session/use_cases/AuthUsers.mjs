@@ -13,7 +13,7 @@ class AuthUser {
   }
 
   async execute(params) {
-    
+    params.email = params.email.toLowerCase();
     const result = await this.repository.getAuthUsers(params)
     if (result.length < 1) {
       throw new DataNotFoundException('User not found.')
