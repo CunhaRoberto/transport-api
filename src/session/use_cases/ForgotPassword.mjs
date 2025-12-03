@@ -45,6 +45,7 @@ class CreateUsers {
       {
       host: hostEmail,
       port: portEmail,
+      secure: true,
       logger: true,
       debug: true,
       auth: {
