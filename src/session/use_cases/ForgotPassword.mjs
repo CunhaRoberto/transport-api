@@ -14,10 +14,10 @@ class CreateUsers {
   async execute(param) {
 
     let {    
-      HOST_EMAIL,  
-      PORT_EMAIL,  
-      USER_EMAIL,  
-      PASS_EMAIL,
+      SMTP_HOST,  
+      SMTP_PORT,  
+      SMTP_USER,  
+      SMTP_PASS,
       ENVIRONMENT 
     } = process.env
     // Check if the user exists
@@ -33,14 +33,14 @@ class CreateUsers {
     now.setMinutes(now.getMinutes() + 30);
 
     const params ={
-      pass : PASS_EMAIL,
-      user: USER_EMAIL
+      pass : SMTP_PASS,
+      user: SMTP_USER
     } 
 
     if(!Application.isInProductionMode()) param.email = 'rcunha@live.com'   
       
-    const portEmail = Number(PORT_EMAIL)
-    const hostEmail = HOST_EMAIL
+    const portEmail = Number(SMTP_PORT)
+    const hostEmail = SMTP_HOST
     var transport = nodemailer.createTransport(
       {
       host: hostEmail,
@@ -69,7 +69,7 @@ class CreateUsers {
 
   
    const message = {
-     from: `NO REPLY<${USER_EMAIL}>`,
+     from: `NO REPLY<${SMTP_USER}>`,
      to: param.email,
      subject: 'Transporte Seguro CPI-5 - Código para cadastrar nova senha',
      
